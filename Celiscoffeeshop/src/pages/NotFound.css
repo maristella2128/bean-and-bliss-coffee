@@ -1,0 +1,150 @@
+.not-found-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--cream) 0%, var(--dark-cream) 100%);
+    padding: 2rem;
+}
+
+.not-found-content {
+    text-align: center;
+    max-width: 600px;
+    background: white;
+    padding: 4rem 3rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+.coffee-icon {
+    font-size: 6rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.error-code {
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--primary-brown);
+    margin: 0;
+    line-height: 1;
+}
+
+.not-found-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--primary-brown);
+    margin: 1rem 0;
+}
+
+.not-found-content p {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.primary-btn, .secondary-btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.primary-btn {
+    background: linear-gradient(45deg, var(--primary-brown), var(--secondary-brown));
+    color: white;
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(139, 69, 19, 0.3);
+}
+
+.secondary-btn {
+    background: white;
+    color: var(--primary-brown);
+    border: 2px solid var(--primary-brown);
+}
+
+.secondary-btn:hover {
+    background: var(--primary-brown);
+    color: white;
+}
+
+.suggestions {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid #e0e0e0;
+}
+
+.suggestions h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-brown);
+    margin-bottom: 1rem;
+}
+
+.suggestions ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.suggestions li a {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.suggestions li a:hover {
+    color: var(--primary-brown);
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .not-found-content {
+        padding: 3rem 2rem;
+    }
+
+    .error-code {
+        font-size: 6rem;
+    }
+
+    .not-found-content h2 {
+        font-size: 2rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .primary-btn, .secondary-btn {
+        width: 100%;
+    }
+}
+
