@@ -4,7 +4,7 @@
 services:
   # PHP API Backend
   - type: web
-    name: beanandbliss-api
+    name: bean-and-bliss-coffee
     env: docker
     plan: free
     region: oregon

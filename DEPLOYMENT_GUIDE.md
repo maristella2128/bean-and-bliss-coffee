@@ -144,7 +144,7 @@ psql -U postgres
 1. In Render Dashboard, click **"New +"** → **"Web Service"**
 2. Connect your GitHub repository
 3. Configure:
-   - **Name**: `beanandbliss-api`
+   - **Name**: `bean-and-bliss-coffee`
    - **Region**: Same as database
    - **Branch**: `main`
    - **Root Directory**: Leave empty
@@ -174,7 +174,7 @@ PORT=10000
 
 After deployment completes, your API will be available at:
 ```
-https://beanandbliss-api.onrender.com
+https://bean-and-bliss-coffee.onrender.com
 ```
 
 **Save this URL** - you'll need it for the frontend deployment.
@@ -201,7 +201,7 @@ https://beanandbliss-api.onrender.com
 2. Update `Celiscoffeeshop/netlify.toml`:
    ```toml
    [build.environment]
-     VITE_API_URL = "https://your-beanandbliss-api.onrender.com/api"
+     VITE_API_URL = "https://your-bean-and-bliss-coffee.onrender.com/api"
    ```
    Replace with your actual Render API URL from the previous step.
 

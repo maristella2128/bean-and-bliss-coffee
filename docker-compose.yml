@@ -29,7 +29,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: beanandbliss-api
+    container_name: bean-and-bliss-coffee
     restart: unless-stopped
     depends_on:
       postgres:

@@ -42,7 +42,7 @@ docker-compose logs -f
 │                                                 │
 │  API (PHP 8.2 + Apache)                         │
 │  http://localhost:8080                          │
-│  Container: beanandbliss-api                    │
+│  Container: bean-and-bliss-coffee               │
 │                                                 │
 └────────────────┬────────────────────────────────┘
                  │
@@ -77,7 +77,7 @@ docker-compose logs -f
 - **Password**: Set in .env file
 
 ### 2. PHP API
-- **Container**: beanandbliss-api
+- **Container**: bean-and-bliss-coffee
 - **Port**: 8080
 - **Base URL**: http://localhost:8080/api
 
@@ -323,7 +323,7 @@ curl -X POST http://localhost:8080/api/orderform_pg.php \
 docker stats
 
 # Specific container
-docker stats beanandbliss-api
+docker stats bean-and-bliss-coffee
 ```
 
 ### Health Checks
