@@ -216,7 +216,7 @@ https://beanandbliss-api.onrender.com
    - **Publish directory**: `Celiscoffeeshop/dist`
 5. Add Environment Variables:
    - Key: `VITE_API_URL`
-   - Value: `https://your-beanandbliss-api.onrender.com/api`
+   - Value: `C`
 6. Click **"Deploy site"**
 
 #### Step 3: Custom Domain (Optional)
