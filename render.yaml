@@ -2,17 +2,19 @@
 # https://render.com/docs/blueprint-spec
 
 services:
-  # PostgreSQL Database
-  - type: pserv
-    name: beanandbliss-db
+  # PHP API Backend
+  - type: web
+    name: beanandbliss-api
     env: docker
     plan: free
     region: oregon
-    dockerfilePath: ./Dockerfile
+    dockerfilePath: ./Dockerfile.render
     dockerContext: .
     envVars:
       - key: DB_HOST
-        value: localhost
+        fromDatabase:
+          name: beanandbliss-postgres
+          property: host
       - key: DB_PORT
         value: 5432
       - key: DB_NAME
