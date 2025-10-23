@@ -1,0 +1,40 @@
+# Render Blueprint for Bean and Bliss Coffee Shop
+# https://render.com/docs/blueprint-spec
+
+services:
+  # PostgreSQL Database
+  - type: pserv
+    name: beanandbliss-db
+    env: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    envVars:
+      - key: DB_HOST
+        value: localhost
+      - key: DB_PORT
+        value: 5432
+      - key: DB_NAME
+        fromDatabase:
+          name: beanandbliss-postgres
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: beanandbliss-postgres
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: beanandbliss-postgres
+          property: password
+      - key: ALLOWED_ORIGINS
+        value: https://your-frontend-domain.netlify.app
+
+databases:
+  - name: beanandbliss-postgres
+    databaseName: beanandblisscoffee
+    user: beanandbliss_user
+    plan: free
+    region: oregon
+    postgresMajorVersion: 15
+

@@ -1,0 +1,47 @@
+# Node modules
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build output
+Celiscoffeeshop/dist/
+Celiscoffeeshop/build/
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation
+*.md
+!README.md
+
+# Environment files
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Logs
+logs/
+*.log
+
+# Database dumps
+*.sql
+!database/beanandblisscoffee_postgresql.sql
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+

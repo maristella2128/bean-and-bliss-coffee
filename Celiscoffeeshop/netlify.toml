@@ -1,0 +1,53 @@
+# Netlify Configuration for Bean and Bliss Coffee Frontend
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  # Build command
+  command = "npm run build"
+  
+  # Directory to deploy (output of build command)
+  publish = "dist"
+  
+  # Base directory for build command
+  base = "Celiscoffeeshop"
+
+[build.environment]
+  # Node version
+  NODE_VERSION = "18"
+  
+  # API URL (update this with your Render API URL after deployment)
+  VITE_API_URL = "https://your-api-url.onrender.com"
+
+# Redirect rules for Single Page Application
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers for security and CORS
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+# Headers for static assets caching
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Headers for HTML files (no cache)
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Custom error page (optional)
+# [[redirects]]
+#   from = "/404"
+#   to = "/404.html"
+#   status = 404
+

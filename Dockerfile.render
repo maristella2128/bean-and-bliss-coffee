@@ -1,0 +1,43 @@
+# Render-specific Dockerfile for PHP API Backend
+FROM php:8.2-apache
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    libzip-dev \
+    zip \
+    unzip \
+    git \
+    curl \
+    && docker-php-ext-install pdo pdo_pgsql pgsql \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Enable Apache modules
+RUN a2enmod rewrite headers
+
+# Copy API files
+COPY api/ /var/www/html/
+
+# Create .htaccess for proper routing
+RUN echo 'RewriteEngine On\n\
+RewriteCond %{REQUEST_FILENAME} !-f\n\
+RewriteCond %{REQUEST_FILENAME} !-d\n\
+RewriteRule ^(.*)$ index.php [QSA,L]' > /var/www/html/.htaccess
+
+# Update Apache configuration
+RUN sed -i 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf
+
+# Set proper permissions
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html
+
+# Set working directory
+WORKDIR /var/www/html
+
+# Expose port (Render uses $PORT environment variable)
+EXPOSE ${PORT:-80}
+
+# Start Apache on the port specified by Render
+CMD sed -i "s/80/${PORT:-80}/g" /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf && apache2-foreground
+
